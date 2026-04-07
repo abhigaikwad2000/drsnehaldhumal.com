@@ -766,6 +766,27 @@
       line-height: 1.8;
     }
     .callback-form { display: grid; gap: 12px; margin-top: 12px; }
+    .form-status {
+      margin-top: 8px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--text-light);
+    }
+    .form-status[data-state="success"] { color: var(--sage); }
+    .form-status[data-state="error"] { color: #9a3412; }
+    .callback-fallbacks {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .callback-fallbacks.is-visible { display: grid; }
+    .callback-fallbacks .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
     .form-field { display: block; }
     .form-field input,
     .form-field textarea {
@@ -1586,8 +1607,14 @@
                 <span class="sr-only">Brief concern</span>
                 <textarea name="message" placeholder="Brief concern" rows="3"></textarea>
               </label>
-              <button type="submit" class="btn btn-primary btn-full">Request Callback</button>
+              <button type="submit" class="btn btn-primary btn-full">Continue Callback Request</button>
             </form>
+            <p id="callbackStatus" class="form-status" aria-live="polite">Fill your details and continue to choose how you want to send the callback request.</p>
+            <div id="callbackFallbacks" class="callback-fallbacks" aria-live="polite">
+              <a id="callbackWhatsappLink" href="https://wa.me/918208103369" class="btn btn-whatsapp" target="_blank" rel="noopener">Send on WhatsApp</a>
+              <a id="callbackEmailLink" href="mailto:drsnehaldhumal.md@gmail.com" class="btn btn-outline">Send Email</a>
+              <button id="callbackCopyBtn" type="button" class="btn btn-outline">Copy Details</button>
+            </div>
           </div>
         </div>
         <div class="contact-actions">
@@ -1693,14 +1720,55 @@
     }
   });
 
-  // Callback form mailto handler
+  // Callback form handler
   const callbackForm = document.getElementById('callbackForm');
+  const callbackStatus = document.getElementById('callbackStatus');
+  const callbackFallbacks = document.getElementById('callbackFallbacks');
+  const callbackWhatsappLink = document.getElementById('callbackWhatsappLink');
+  const callbackEmailLink = document.getElementById('callbackEmailLink');
+  const callbackCopyBtn = document.getElementById('callbackCopyBtn');
   if (callbackForm) {
-    callbackForm.addEventListener('submit', (event) => {
+    const setCallbackStatus = (message, state = '') => {
+      if (!callbackStatus) return;
+      callbackStatus.textContent = message;
+      if (state) callbackStatus.dataset.state = state;
+      else delete callbackStatus.dataset.state;
+    };
+
+    let lastCallbackMessage = '';
+    const showFallbacks = (callbackMessage) => {
+      lastCallbackMessage = callbackMessage;
+      if (callbackFallbacks) callbackFallbacks.classList.add('is-visible');
+      if (callbackWhatsappLink) {
+        callbackWhatsappLink.href = `https://wa.me/918208103369?text=${encodeURIComponent(callbackMessage)}`;
+      }
+      if (callbackEmailLink) {
+        callbackEmailLink.href = `mailto:drsnehaldhumal.md@gmail.com?subject=${encodeURIComponent('Callback Request from Website')}&body=${encodeURIComponent(callbackMessage)}`;
+      }
+    }
+
+    if (callbackCopyBtn) {
+      callbackCopyBtn.addEventListener('click', async () => {
+        if (!lastCallbackMessage) return;
+        if (window.isSecureContext && navigator.clipboard?.writeText) {
+          try {
+            await navigator.clipboard.writeText(lastCallbackMessage);
+            setCallbackStatus('Callback details copied. You can paste them into WhatsApp or send them manually by email to drsnehaldhumal.md@gmail.com.', 'success');
+            return;
+          } catch (error) {
+            // Fallback handled below.
+          }
+        }
+        setCallbackStatus('Copy is not available in this browser. Please use WhatsApp or Send Email. If your email app is not configured, email drsnehaldhumal.md@gmail.com manually.', 'error');
+      });
+    }
+
+    callbackForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const { name, phone, message } = event.target.elements;
-      const body = `Name: ${name.value.trim()}\nPhone: ${phone.value.trim()}\nMessage: ${message.value.trim()}`;
-      window.location.href = `mailto:drsnehaldhumal.md@gmail.com?subject=${encodeURIComponent('Callback Request from Website')}&body=${encodeURIComponent(body)}`;
+      const callbackMessage = `Hello Dr. Snehal, I would like to request a callback.\n\nName: ${name.value.trim()}\nPhone: ${phone.value.trim()}\nConcern: ${message.value.trim() || 'Not provided'}`;
+      showFallbacks(callbackMessage);
+      setCallbackStatus('Choose how you want to continue below. If Send Email does not open anything, your device does not have a default email app configured. In that case, copy the details and send them manually to drsnehaldhumal.md@gmail.com.', 'success');
     });
   }
 
