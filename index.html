@@ -41,7 +41,7 @@
     "description": "Homeopathic clinic in Ichalkaranji offering personalized care for thyroid, skin conditions, kidney stones, piles, PCOS, infertility, and other chronic concerns.",
     "url": "https://www.drsnehaldhumal.com/",
     "telephone": "+918208103369",
-    "email": "dr.snehaldhumal@gmail.com",
+    "email": "drsnehaldhumal.md@gmail.com",
     "priceRange": "₹₹",
     "address": {
       "@type": "PostalAddress",
@@ -216,7 +216,28 @@
       justify-content: space-between;
       height: 68px;
     }
-    .nav-brand { display: flex; flex-direction: column; min-width: 0; }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .nav-brand-mark {
+      width: 42px;
+      height: 42px;
+      padding: 5px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(44,95,66,0.12);
+      box-shadow: 0 6px 14px rgba(26,58,42,0.08);
+      flex-shrink: 0;
+    }
+    .nav-brand-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
     .nav-brand-name {
       font-family: var(--font-display);
       font-size: 20px;
@@ -899,6 +920,16 @@
       gap: 12px;
       font-size: 12px;
     }
+    .footer-brand-logo {
+      display: block;
+      width: min(100%, 150px);
+      height: auto;
+      margin-top: 16px;
+      padding: 6px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.16);
+    }
     .footer-bottom a { color: var(--mint); }
     .reg-badge {
       display: inline-flex;
@@ -995,8 +1026,14 @@
       .about-credentials { grid-template-columns: 1fr; }
       .nav-inner { gap: 12px; }
       .nav-brand { max-width: calc(100% - 52px); }
+      .nav-brand-mark {
+        width: 38px;
+        height: 38px;
+        padding: 5px;
+        border-radius: 10px;
+      }
       .nav-brand-name { font-size: 18px; }
-      .nav-brand-sub { font-size: 9px; letter-spacing: 1.2px; line-height: 1.4; }
+      .nav-brand-sub { font-size: 8px; letter-spacing: 1.1px; line-height: 1.4; }
       .hero { min-height: auto; }
       .hero-card { padding: 24px 20px; }
       .hero-float-badge {
@@ -1044,8 +1081,11 @@
 <nav class="navbar" id="navbar" aria-label="Main navigation">
   <div class="container nav-inner">
     <a href="#home" class="nav-brand" aria-label="Home">
-      <span class="nav-brand-name">Dr. Snehal Dhumal</span>
-      <span class="nav-brand-sub">Sahyadri Holistic Clinic · Ichalkaranji</span>
+      <img src="apple-touch-icon.png" alt="" class="nav-brand-mark" aria-hidden="true" />
+      <span class="nav-brand-copy">
+        <span class="nav-brand-name">Dr. Snehal Dhumal</span>
+        <span class="nav-brand-sub">Sahyadri Holistic Clinic · Ichalkaranji</span>
+      </span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="#about">About</a></li>
@@ -1523,7 +1563,7 @@
           <div>
             <div class="contact-card-title">Email</div>
             <div class="contact-card-value">
-              <a href="mailto:dr.snehaldhumal@gmail.com" style="color:var(--forest);">dr.snehaldhumal@gmail.com</a>
+              <a href="mailto:drsnehaldhumal.md@gmail.com" style="color:var(--forest);">drsnehaldhumal.md@gmail.com</a>
             </div>
             <div class="contact-card-sub">Write to the clinic for appointment details</div>
           </div>
@@ -1585,6 +1625,7 @@
         <div style="margin-top:16px;" class="reg-badge">
           <span>🏛️</span> Reg. No. 89896 · BHMS, MD (Hom)
         </div>
+        <img src="sahyadri-logo.png" alt="Sahyadri Holistic Clinic logo" class="footer-brand-logo" />
       </div>
       <nav aria-label="Footer navigation – Quick links">
         <div class="footer-col-title">Quick Links</div>
@@ -1659,7 +1700,7 @@
       event.preventDefault();
       const { name, phone, message } = event.target.elements;
       const body = `Name: ${name.value.trim()}\nPhone: ${phone.value.trim()}\nMessage: ${message.value.trim()}`;
-      window.location.href = `mailto:dr.snehaldhumal@gmail.com?subject=${encodeURIComponent('Callback Request from Website')}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:drsnehaldhumal.md@gmail.com?subject=${encodeURIComponent('Callback Request from Website')}&body=${encodeURIComponent(body)}`;
     });
   }
 
