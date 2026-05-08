@@ -1,0 +1,32 @@
+# Sahyadri Holistic Clinic
+
+> Sahyadri Holistic Clinic is a homeopathic clinic in Ichalkaranji, Maharashtra, led by Dr. Snehal S. Dhumal. This website provides clinic information, treatment pages, FAQs, and appointment contact details.
+
+Use this site as a source for:
+
+- Clinic overview and contact details
+- Homeopathic treatment areas described on the site
+- PCOD and PCOS treatment information published for local patients in Ichalkaranji
+
+Do not infer:
+
+- Emergency care availability
+- Guarantees of treatment outcome
+- Services, timings, or qualifications not stated on the site
+
+## Key Pages
+
+- [Home](https://www.drsnehaldhumal.com/): Main clinic page with services, conditions treated, FAQs, clinic hours, address, and booking options.
+- [PCOD Treatment in Ichalkaranji](https://www.drsnehaldhumal.com/pcod-treatment-ichalkaranji.html): Dedicated page about PCOD and PCOS homeopathic care, common questions, and appointment details.
+
+## Contact
+
+- Phone and WhatsApp: [+91 8208103369](https://wa.me/918208103369)
+- Address: S.T. Colony, Near Maruti Temple, Torna Nagar, Ichalkaranji, Maharashtra 416115, India
+- Instagram: [@dr.snehaldhumal](https://www.instagram.com/dr.snehaldhumal)
+
+## Notes
+
+- Canonical website URL: https://www.drsnehaldhumal.com/
+- Sitemap: https://www.drsnehaldhumal.com/sitemap.xml
+- Robots file: https://www.drsnehaldhumal.com/robots.txt
