@@ -1075,6 +1075,13 @@
       gap: 12px;
       font-size: 12px;
     }
+    .footer-meta-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+    }
     .footer-brand-logo {
       display: block;
       width: min(100%, 220px);
@@ -1086,6 +1093,22 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.16);
     }
     .footer-bottom a { color: var(--mint); }
+    .footer-directory-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border: 1px solid rgba(169, 215, 194, 0.3);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.82);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .footer-directory-link:hover {
+      color: white;
+      border-color: rgba(169, 215, 194, 0.6);
+      background: rgba(255,255,255,0.08);
+    }
     .reg-badge {
       display: inline-flex;
       align-items: center;
@@ -1479,6 +1502,13 @@
         <div class="service-tag">Joint &amp; Bone Health</div>
       </article>
       <article class="service-card fade-in">
+        <div class="service-icon" aria-hidden="true">🩹</div>
+        <h3 class="service-title">Piles Treatment in Ichalkaranji</h3>
+        <p class="service-desc">Homeopathic care for piles, bleeding during stool, pain, itching, swelling, and constipation-related discomfort with a personalised non-surgical approach.</p>
+        <div class="service-tag">Piles &amp; Rectal Care</div>
+        <a href="piles-treatment-ichalkaranji.html" class="service-link">Explore Piles treatment page →</a>
+      </article>
+      <article class="service-card fade-in">
         <div class="service-icon" aria-hidden="true">🔄</div>
         <h3 class="service-title">PCOD / PCOS Treatment Ichalkaranji</h3>
         <p class="service-desc">Homeopathic care for PCOD and PCOS — addressing hormonal imbalance, irregular periods, weight issues, and related symptoms with safe, individualized treatment.</p>
@@ -1518,10 +1548,12 @@
         <span class="condition-emoji" aria-hidden="true">🪨</span>
         <span class="condition-name">Kidney Stones</span>
       </div>
-      <div class="condition-card" role="listitem">
-        <span class="condition-emoji" aria-hidden="true">🩹</span>
-        <span class="condition-name">Piles &amp; Fissure</span>
-      </div>
+      <a href="piles-treatment-ichalkaranji.html" class="condition-card-link" role="listitem" aria-label="Open piles treatment page">
+        <div class="condition-card">
+          <span class="condition-emoji" aria-hidden="true">🩹</span>
+          <span class="condition-name">Piles &amp; Fissure</span>
+        </div>
+      </a>
       <a href="pcod-treatment-ichalkaranji.html" class="condition-card-link" role="listitem" aria-label="Open PCOD treatment page">
         <div class="condition-card">
           <span class="condition-emoji" aria-hidden="true">🔄</span>
@@ -1842,20 +1874,21 @@
         <div class="footer-col-title">Conditions</div>
         <ul class="footer-links" role="list">
           <li><a href="pcod-treatment-ichalkaranji.html">PCOS Treatment</a></li>
+          <li><a href="piles-treatment-ichalkaranji.html">Piles Treatment</a></li>
           <li><a href="#conditions">Thyroid Care</a></li>
           <li><a href="#conditions">Skin &amp; Acne</a></li>
           <li><a href="#conditions">Weight Management</a></li>
           <li><a href="#conditions">Kidney Stones</a></li>
-          <li><a href="#conditions">Infertility Support</a></li>
         </ul>
       </div>
     </div>
     <hr class="footer-divider" />
     <div class="footer-bottom">
       <span>© 2025 Dr. Snehal S. Dhumal – Sahyadri Holistic Clinic, Ichalkaranji. All rights reserved.</span>
-      <span>
+      <div class="footer-meta-links">
         <a href="https://www.instagram.com/dr.snehaldhumal" target="_blank" rel="noopener">Instagram: @dr.snehaldhumal</a>
-      </span>
+        <a class="footer-directory-link" href="https://clinicspots.com/doctor/dr-snehal-shivaji-dhumal" target="_blank" rel="noopener">Listed on ClinicSpots ↗</a>
+      </div>
     </div>
   </div>
 </footer>
